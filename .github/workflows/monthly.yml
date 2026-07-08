@@ -1,0 +1,16 @@
+name: 技能樹每月健檢
+on:
+  schedule:
+    - cron: '0 1 1 * *'   # 每月 1 號 01:00 UTC = 台北 09:00
+  workflow_dispatch:       # 也可手動觸發（測試用）
+permissions:
+  contents: read
+jobs:
+  monthly-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 健檢並推 Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python3 .github/scripts/monthly_check.py

@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "title": "Andy 的技能樹",
+    "note": "本機 ~/.claude/skills 個人 skill 的 curated 目錄（顯示用單一真相來源）。scan_skills.py 會拿這份跟實際安裝的 skill 對照，抓出新增/移除。",
+    "categories": {
+      "engine":    {"zh": "影音引擎 · HyperFrames", "emoji": "🧩"},
+      "workflow":  {"zh": "影音工作流 · 依素材做片", "emoji": "🎬"},
+      "social":    {"zh": "社群內容", "emoji": "📣"},
+      "design":    {"zh": "設計", "emoji": "🎨"},
+      "knowledge": {"zh": "知識・記錄・分身", "emoji": "🧠"},
+      "planning":  {"zh": "規劃・想法", "emoji": "💡"},
+      "andy":      {"zh": "Andy 專屬工作流", "emoji": "⚙️"}
+    }
+  },
+  "skills": [
+    {"slug": "hyperframes",               "cat": "engine",    "name": "HyperFrames 總入口",        "desc": "用 HTML 做影片：合成、字幕、配音、動畫、轉場的主入口。"},
+    {"slug": "hyperframes-core",          "cat": "engine",    "name": "合成結構契約",              "desc": "clips／tracks／變數／確定性渲染的底層規則與驗證。"},
+    {"slug": "hyperframes-animation",     "cat": "engine",    "name": "動畫知識庫",                "desc": "所有動畫：GSAP、Lottie、Three.js…七種 runtime 與場景藍圖。"},
+    {"slug": "hyperframes-creative",      "cat": "engine",    "name": "創意方向",                  "desc": "非動畫面：配色、字體、旁白、節奏、品牌風格決策。"},
+    {"slug": "hyperframes-media",         "cat": "engine",    "name": "素材前處理",                "desc": "TTS 配音、BGM、Whisper 轉錄、去背、字幕作者化。"},
+    {"slug": "hyperframes-cli",           "cat": "engine",    "name": "CLI 開發迴圈",              "desc": "init／lint／preview／render／doctor 指令與環境排錯。"},
+    {"slug": "hyperframes-registry",      "cat": "engine",    "name": "元件安裝接線",              "desc": "hyperframes add 安裝 registry 區塊並接進合成。"},
+
+    {"slug": "faceless-explainer",        "cat": "workflow",  "name": "無人臉解說片",              "desc": "文字／主題 → 自產旁白（TTS）的排版／圖解／數據解說短片。"},
+    {"slug": "general-video",             "cat": "workflow",  "name": "萬用影片 fallback",         "desc": "沒有專用工作流時用：多場景、品牌片、sizzle reel、標題卡。"},
+    {"slug": "product-launch-video",      "cat": "workflow",  "name": "產品發表片",                "desc": "產品／SaaS／功能發表宣傳片，可抓官網品牌或純腳本。"},
+    {"slug": "website-to-video",          "cat": "workflow",  "name": "網站轉影片",                "desc": "截圖＋品牌素材，把一個網站做成導覽或社群短片。"},
+    {"slug": "pr-to-video",               "cat": "workflow",  "name": "PR 轉影片",                 "desc": "GitHub PR → 程式碼變更 before/after 解說片。"},
+    {"slug": "motion-graphics",           "cat": "workflow",  "name": "短動態圖",                  "desc": "動態字、數據跳動、logo sting、下標，通常 10 秒內。"},
+    {"slug": "video-spec-builder",        "cat": "workflow",  "name": "影片需求訪談",              "desc": "蘇格拉底式問答收需求 → 標準化 video-spec.md。"},
+    {"slug": "remotion-to-hyperframes",   "cat": "workflow",  "name": "Remotion 移植",             "desc": "把既有 Remotion（React）合成翻譯成 HyperFrames HTML。"},
+    {"slug": "embedded-captions",         "cat": "workflow",  "name": "特效字幕",                  "desc": "對談影片加酷炫字幕，32 種視覺風格（Whisper→去背→ffmpeg）。"},
+    {"slug": "graphic-overlays",          "cat": "workflow",  "name": "疊圖卡包裝",                "desc": "對談／Podcast 影片疊時間軸圖卡：下標、數據卡、引言。"},
+
+    {"slug": "cards",                     "cat": "social",    "name": "社群圖卡",                  "desc": "文字→品牌 IG 圖卡（藍黑／橘白，4:5／1:1），自動拆卡匯出。"},
+    {"slug": "threads-post",              "cat": "social",    "name": "Threads 潤稿",              "desc": "潤成 Andy 語氣的 Threads 貼文，給 2 個變體選。"},
+    {"slug": "landing",                   "cat": "social",    "name": "銷售頁生成",                "desc": "問 17 題 → 完整 HTML＋Tailwind 銷售頁，可加倒數。"},
+
+    {"slug": "ui-ux-pro-max",             "cat": "design",    "name": "UI/UX 設計智庫",            "desc": "67 風格／96 配色／57 字體／13 技術棧的設計建置。"},
+
+    {"slug": "heptabase",                 "cat": "knowledge", "name": "Heptabase 讀寫",            "desc": "讀／搜／寫本機 Heptabase 白板、卡片、日誌、tag。"},
+    {"slug": "auto-log",                  "cat": "knowledge", "name": "自動活動記錄",              "desc": "每天 23:30 掃檔案改動＋Calendar → 300_Journal。"},
+    {"slug": "yourself-skill",            "cat": "knowledge", "name": "數位分身蒸餾",              "desc": "把聊天紀錄／日記／照片蒸餾成可執行的數位自己。"},
+
+    {"slug": "brainstorm",                "cat": "planning",  "name": "引導式計劃書",              "desc": "動手前用問答把模糊想法變具體計劃書。"},
+    {"slug": "brainstorming",             "cat": "planning",  "name": "創作前探索",                "desc": "做任何創作前先探索意圖、需求與設計。"},
+    {"slug": "skill-creator",             "cat": "planning",  "name": "技能製作所",                "desc": "建立／修改／優化／評測 skill，含 description 觸發調校。"},
+
+    {"slug": "notion-tools-query",        "cat": "andy",      "name": "工具庫查詢",                "desc": "查 Notion 數位工具庫：我用什麼、推薦、還在用嗎、淘汰過哪些。"},
+    {"slug": "codex-symbiosis",           "cat": "andy",      "name": "Claude×Codex 雙棲健檢",     "desc": "盤點 CLAUDE.md／AGENTS.md／CORE_RULES.md 是否同步。"},
+
+    {"slug": "auto-editor",               "cat": "workflow",  "name": "口播毛片去停頓",            "desc": "真人講話毛片自動剪掉停頓／靜音成緊湊 jump-cut，可接 embedded-captions 上字。"}
+  ]
+}
