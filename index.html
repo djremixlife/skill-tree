@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Andy 的技能樹</title>
+<style>
+  :root {
+    --bg: #f4f6f9;
+    --surface: #ffffff;
+    --surface-2: #fbfcfe;
+    --border: #e3e7ee;
+    --border-strong: #cdd4df;
+    --ink: #191d25;
+    --muted: #616b7a;
+    --faint: #93a0b0;
+    --accent: #2f6bff;
+    --accent-soft: #eaf0ff;
+
+    --c-engine: #7c5cff;
+    --c-workflow: #2f6bff;
+    --c-social: #e0518f;
+    --c-design: #e0870f;
+    --c-knowledge: #10a56f;
+    --c-planning: #0aa7bd;
+    --c-andy: #e0473c;
+
+    --font-ui: system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+    --radius: 7px;
+    --maxw: 1120px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1016;
+      --surface: #151a22;
+      --surface-2: #10141b;
+      --border: #262d39;
+      --border-strong: #37414f;
+      --ink: #e7ebf2;
+      --muted: #8c96a6;
+      --faint: #626d7d;
+      --accent: #6d9bff;
+      --accent-soft: #182234;
+
+      --c-engine: #a08bff;
+      --c-workflow: #6d9bff;
+      --c-social: #f07bb0;
+      --c-design: #f0ad4e;
+      --c-knowledge: #33c88d;
+      --c-planning: #38c6da;
+      --c-andy: #f2685e;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f4f6f9; --surface: #ffffff; --surface-2: #fbfcfe; --border: #e3e7ee;
+    --border-strong: #cdd4df; --ink: #191d25; --muted: #616b7a; --faint: #93a0b0;
+    --accent: #2f6bff; --accent-soft: #eaf0ff;
+    --c-engine: #7c5cff; --c-workflow: #2f6bff; --c-social: #e0518f; --c-design: #e0870f;
+    --c-knowledge: #10a56f; --c-planning: #0aa7bd; --c-andy: #e0473c;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1016; --surface: #151a22; --surface-2: #10141b; --border: #262d39;
+    --border-strong: #37414f; --ink: #e7ebf2; --muted: #8c96a6; --faint: #626d7d;
+    --accent: #6d9bff; --accent-soft: #182234;
+    --c-engine: #a08bff; --c-workflow: #6d9bff; --c-social: #f07bb0; --c-design: #f0ad4e;
+    --c-knowledge: #33c88d; --c-planning: #38c6da; --c-andy: #f2685e;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 40px 24px 72px; }
+
+  /* Header */
+  header { display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  h1 {
+    margin: 0; font-size: clamp(28px, 4vw, 40px); font-weight: 760;
+    letter-spacing: -.02em; text-wrap: balance;
+  }
+  .tagline { color: var(--muted); font-size: 15px; max-width: 60ch; }
+
+  /* Stats */
+  .stats { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 8px; }
+  .stat {
+    flex: 1 1 150px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 16px;
+  }
+  .stat .num {
+    font-family: var(--font-mono); font-size: 30px; font-weight: 600;
+    font-variant-numeric: tabular-nums; letter-spacing: -.02em; line-height: 1.1;
+  }
+  .stat .lbl { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+  .stat .sub { font-size: 11.5px; color: var(--faint); font-family: var(--font-mono); }
+
+  /* Controls */
+  .controls {
+    position: sticky; top: 0; z-index: 5; background: var(--bg);
+    padding: 16px 0 12px; margin-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .search {
+    width: 100%; background: var(--surface); border: 1px solid var(--border-strong);
+    color: var(--ink); font-family: var(--font-mono); font-size: 14px;
+    padding: 11px 14px; border-radius: var(--radius); outline: none;
+  }
+  .search::placeholder { color: var(--faint); }
+  .search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip {
+    font-family: var(--font-mono); font-size: 12.5px; cursor: pointer;
+    background: var(--surface); border: 1px solid var(--border-strong);
+    color: var(--muted); padding: 6px 11px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 7px;
+    transition: border-color .12s, color .12s, background .12s;
+  }
+  .chip:hover { color: var(--ink); border-color: var(--faint); }
+  .chip[aria-pressed="true"] { color: var(--ink); border-color: currentColor; background: var(--surface-2); }
+  .chip .dot { width: 8px; height: 8px; border-radius: 2px; background: var(--dot, var(--accent)); }
+  .chip .cnt { font-variant-numeric: tabular-nums; color: var(--faint); }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Sections */
+  section { margin-top: 34px; }
+  section.hidden { display: none; }
+  .sec-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+  .sec-head .dot { width: 10px; height: 10px; border-radius: 3px; background: var(--dot); transform: translateY(1px); }
+  .sec-head h2 { margin: 0; font-size: 17px; font-weight: 680; letter-spacing: -.01em; }
+  .sec-head .en { font-family: var(--font-mono); font-size: 12px; color: var(--faint); letter-spacing: .04em; }
+  .sec-head .cnt { margin-left: auto; font-family: var(--font-mono); font-size: 12.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+
+  /* Cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 12px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 15px 15px;
+    display: flex; flex-direction: column; gap: 7px;
+    transition: border-color .13s, transform .13s, box-shadow .13s;
+  }
+  .card.hidden { display: none; }
+  .card:hover {
+    border-color: var(--dot);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px -12px rgba(20,30,60,.35);
+  }
+  .card .slug {
+    font-family: var(--font-mono); font-size: 13px; font-weight: 600;
+    color: var(--dot); word-break: break-all;
+  }
+  .card .name { font-size: 14.5px; font-weight: 640; letter-spacing: -.005em; }
+  .card .desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+  mark { background: transparent; color: var(--accent); font-weight: 700; }
+
+  .empty { color: var(--muted); font-family: var(--font-mono); font-size: 13px; padding: 40px 0; text-align: center; display: none; }
+  .empty.show { display: block; }
+
+  /* Footer */
+  footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+  footer h3 { margin: 0 0 10px; font-size: 13px; color: var(--ink); font-family: var(--font-mono); letter-spacing: .04em; text-transform: uppercase; }
+  .bundles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+  .bundle {
+    font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+    border: 1px dashed var(--border-strong); border-radius: 999px; padding: 5px 11px;
+  }
+  .bundle b { color: var(--ink); font-weight: 600; }
+  .note { max-width: 72ch; line-height: 1.6; }
+  .note code { font-family: var(--font-mono); font-size: 12px; background: var(--surface-2); border: 1px solid var(--border); padding: 1px 6px; border-radius: 4px; color: var(--ink); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    .card:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Claude Code · ~/.claude/skills</div>
+    <h1>Andy 的技能樹</h1>
+    <p class="tagline">你本機自己策展的 30 個 skill，依用途分成 7 群。輸入 <code style="font-family:var(--font-mono)">/slug</code> 就能在 Claude Code 裡叫用。</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="num" id="s-total">30</div><div class="lbl">個人技能</div><div class="sub">~/.claude/skills</div></div>
+    <div class="stat"><div class="num">7</div><div class="lbl">分類</div><div class="sub">by use-case</div></div>
+    <div class="stat"><div class="num">18</div><div class="lbl">影音相關</div><div class="sub">60% · 影片工作流大本營</div></div>
+    <div class="stat"><div class="num">80+</div><div class="lbl">外掛另帶</div><div class="sub">Zeabur / Codex / 官方</div></div>
+  </div>
+
+  <div class="controls">
+    <input class="search" id="search" type="text" placeholder="搜尋技能…（slug、名稱、用途）" aria-label="搜尋技能">
+    <div class="chips" id="chips">
+      <button class="chip" data-cat="all" aria-pressed="true" style="--dot:var(--accent)"><span class="dot"></span>全部 <span class="cnt">30</span></button>
+      <button class="chip" data-cat="engine" aria-pressed="false" style="--dot:var(--c-engine)"><span class="dot"></span>影音引擎 <span class="cnt">7</span></button>
+      <button class="chip" data-cat="workflow" aria-pressed="false" style="--dot:var(--c-workflow)"><span class="dot"></span>影音工作流 <span class="cnt">11</span></button>
+      <button class="chip" data-cat="social" aria-pressed="false" style="--dot:var(--c-social)"><span class="dot"></span>社群內容 <span class="cnt">3</span></button>
+      <button class="chip" data-cat="design" aria-pressed="false" style="--dot:var(--c-design)"><span class="dot"></span>設計 <span class="cnt">1</span></button>
+      <button class="chip" data-cat="knowledge" aria-pressed="false" style="--dot:var(--c-knowledge)"><span class="dot"></span>知識・記錄 <span class="cnt">3</span></button>
+      <button class="chip" data-cat="planning" aria-pressed="false" style="--dot:var(--c-planning)"><span class="dot"></span>規劃・想法 <span class="cnt">3</span></button>
+      <button class="chip" data-cat="andy" aria-pressed="false" style="--dot:var(--c-andy)"><span class="dot"></span>Andy 專屬 <span class="cnt">2</span></button>
+    </div>
+  </div>
+
+  <div id="board"></div>
+  <div class="empty" id="empty">沒有符合的技能 —— 換個關鍵字試試</div>
+
+  <footer>
+    <h3>外掛額外帶入（不列入上面 29 個）</h3>
+    <div class="bundles">
+      <span class="bundle"><b>Zeabur</b> · 部署／資料庫／網域 ~40</span>
+      <span class="bundle"><b>Codex</b> · rescue／setup／雙棲</span>
+      <span class="bundle"><b>Anthropic 官方</b> · docx／pdf／pptx／xlsx／dataviz</span>
+      <span class="bundle"><b>Claude Code 內建</b> · code-review／verify／loop／schedule</span>
+      <span class="bundle"><b>hookify · telegram · discord · imessage</b></span>
+    </div>
+    <p class="note">這張表對應截圖裡老獅的「技能樹」——那是一支掃描 <code>~/.claude/skills/*/SKILL.md</code> 再渲染成畫廊的工具。這一頁是用你<strong>真正安裝的技能</strong>長出來的；之後裝了新 skill，跟我說「更新技能樹」就會重畫。也可以把它整段貼進 Notion 當一頁索引。</p>
+  </footer>
+</div>
+
+<script>
+  const SKILLS = [
+    // engine
+    { cat:"engine", slug:"hyperframes", name:"HyperFrames 總入口", desc:"用 HTML 做影片：合成、字幕、配音、動畫、轉場的主入口。" },
+    { cat:"engine", slug:"hyperframes-core", name:"合成結構契約", desc:"clips／tracks／變數／確定性渲染的底層規則與驗證。" },
+    { cat:"engine", slug:"hyperframes-animation", name:"動畫知識庫", desc:"所有動畫：GSAP、Lottie、Three.js…七種 runtime 與場景藍圖。" },
+    { cat:"engine", slug:"hyperframes-creative", name:"創意方向", desc:"非動畫面：配色、字體、旁白、節奏、品牌風格決策。" },
+    { cat:"engine", slug:"hyperframes-media", name:"素材前處理", desc:"TTS 配音、BGM、Whisper 轉錄、去背、字幕作者化。" },
+    { cat:"engine", slug:"hyperframes-cli", name:"CLI 開發迴圈", desc:"init／lint／preview／render／doctor 指令與環境排錯。" },
+    { cat:"engine", slug:"hyperframes-registry", name:"元件安裝接線", desc:"hyperframes add 安裝 registry 區塊並接進合成。" },
+    // workflow
+    { cat:"workflow", slug:"faceless-explainer", name:"無人臉解說片", desc:"文字／主題 → 自產旁白（TTS）的排版／圖解／數據解說短片。" },
+    { cat:"workflow", slug:"general-video", name:"萬用影片 fallback", desc:"沒有專用工作流時用：多場景、品牌片、sizzle reel、標題卡。" },
+    { cat:"workflow", slug:"product-launch-video", name:"產品發表片", desc:"產品／SaaS／功能發表宣傳片，可抓官網品牌或純腳本。" },
+    { cat:"workflow", slug:"website-to-video", name:"網站轉影片", desc:"截圖＋品牌素材，把一個網站做成導覽或社群短片。" },
+    { cat:"workflow", slug:"pr-to-video", name:"PR 轉影片", desc:"GitHub PR → 程式碼變更 before/after 解說片。" },
+    { cat:"workflow", slug:"motion-graphics", name:"短動態圖", desc:"動態字、數據跳動、logo sting、下標，通常 10 秒內。" },
+    { cat:"workflow", slug:"video-spec-builder", name:"影片需求訪談", desc:"蘇格拉底式問答收需求 → 標準化 video-spec.md。" },
+    { cat:"workflow", slug:"remotion-to-hyperframes", name:"Remotion 移植", desc:"把既有 Remotion（React）合成翻譯成 HyperFrames HTML。" },
+    { cat:"workflow", slug:"embedded-captions", name:"特效字幕", desc:"對談影片加酷炫字幕，32 種視覺風格（Whisper→去背→ffmpeg）。" },
+    { cat:"workflow", slug:"graphic-overlays", name:"疊圖卡包裝", desc:"對談／Podcast 影片疊時間軸圖卡：下標、數據卡、引言。" },
+    { cat:"workflow", slug:"auto-editor", name:"口播毛片去停頓", desc:"真人講話毛片自動剪掉停頓／靜音成緊湊 jump-cut，可接 embedded-captions 上字。" },
+    // social
+    { cat:"social", slug:"cards", name:"社群圖卡", desc:"文字→品牌 IG 圖卡（藍黑／橘白，4:5／1:1），自動拆卡匯出。" },
+    { cat:"social", slug:"threads-post", name:"Threads 潤稿", desc:"潤成 Andy 語氣的 Threads 貼文，給 2 個變體選。" },
+    { cat:"social", slug:"landing", name:"銷售頁生成", desc:"問 17 題 → 完整 HTML＋Tailwind 銷售頁，可加倒數。" },
+    // design
+    { cat:"design", slug:"ui-ux-pro-max", name:"UI/UX 設計智庫", desc:"67 風格／96 配色／57 字體／13 技術棧的設計建置。" },
+    // knowledge
+    { cat:"knowledge", slug:"heptabase", name:"Heptabase 讀寫", desc:"讀／搜／寫本機 Heptabase 白板、卡片、日誌、tag。" },
+    { cat:"knowledge", slug:"auto-log", name:"自動活動記錄", desc:"每天 23:30 掃檔案改動＋Calendar → 300_Journal。" },
+    { cat:"knowledge", slug:"yourself-skill", name:"數位分身蒸餾", desc:"把聊天紀錄／日記／照片蒸餾成可執行的數位自己。" },
+    // planning
+    { cat:"planning", slug:"brainstorm", name:"引導式計劃書", desc:"動手前用問答把模糊想法變具體計劃書。" },
+    { cat:"planning", slug:"brainstorming", name:"創作前探索", desc:"做任何創作前先探索意圖、需求與設計。" },
+    { cat:"planning", slug:"skill-creator", name:"技能製作所", desc:"建立／修改／優化／評測 skill，含 description 觸發調校。" },
+    // andy
+    { cat:"andy", slug:"notion-tools-query", name:"工具庫查詢", desc:"查 Notion 數位工具庫：我用什麼、推薦、還在用嗎、淘汰過哪些。" },
+    { cat:"andy", slug:"codex-symbiosis", name:"Claude×Codex 雙棲健檢", desc:"盤點 CLAUDE.md／AGENTS.md／CORE_RULES.md 是否同步。" },
+  ];
+
+  const CATS = [
+    { id:"engine",    zh:"影音引擎 · HyperFrames", en:"engine & references" },
+    { id:"workflow",  zh:"影音工作流 · 依素材做片", en:"pick the right pipeline" },
+    { id:"social",    zh:"社群內容", en:"social content" },
+    { id:"design",    zh:"設計", en:"design intelligence" },
+    { id:"knowledge", zh:"知識・記錄・分身", en:"knowledge & memory" },
+    { id:"planning",  zh:"規劃・想法", en:"planning & ideation" },
+    { id:"andy",      zh:"Andy 專屬工作流", en:"personal ops" },
+  ];
+
+  const board = document.getElementById('board');
+  const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+  CATS.forEach(c => {
+    const items = SKILLS.filter(s => s.cat === c.id);
+    const sec = document.createElement('section');
+    sec.dataset.cat = c.id;
+    sec.style.setProperty('--dot', `var(--c-${c.id})`);
+    sec.innerHTML = `
+      <div class="sec-head">
+        <span class="dot"></span>
+        <h2>${c.zh}</h2>
+        <span class="en">${c.en}</span>
+        <span class="cnt">${items.length}</span>
+      </div>
+      <div class="grid">
+        ${items.map(s => `
+          <div class="card" data-cat="${s.cat}" data-hay="${esc((s.slug+' '+s.name+' '+s.desc).toLowerCase())}" style="--dot:var(--c-${c.id})">
+            <div class="slug">/${esc(s.slug)}</div>
+            <div class="name">${esc(s.name)}</div>
+            <div class="desc">${esc(s.desc)}</div>
+          </div>`).join('')}
+      </div>`;
+    board.appendChild(sec);
+  });
+
+  const search = document.getElementById('search');
+  const chips = [...document.querySelectorAll('.chip')];
+  const empty = document.getElementById('empty');
+  const sTotal = document.getElementById('s-total');
+  let activeCat = 'all';
+
+  function apply() {
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+    document.querySelectorAll('section').forEach(sec => {
+      let secShown = 0;
+      sec.querySelectorAll('.card').forEach(card => {
+        const okCat = activeCat === 'all' || card.dataset.cat === activeCat;
+        const okQ = !q || card.dataset.hay.includes(q);
+        const ok = okCat && okQ;
+        card.classList.toggle('hidden', !ok);
+        if (ok) { secShown++; shown++; }
+      });
+      sec.classList.toggle('hidden', secShown === 0);
+    });
+    sTotal.textContent = shown;
+    empty.classList.toggle('show', shown === 0);
+  }
+
+  chips.forEach(ch => ch.addEventListener('click', () => {
+    activeCat = ch.dataset.cat;
+    chips.forEach(c => c.setAttribute('aria-pressed', String(c === ch)));
+    apply();
+  }));
+  search.addEventListener('input', apply);
+  apply();
+</script>
+</body>
+</html>
