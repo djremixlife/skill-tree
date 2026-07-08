@@ -29,6 +29,6 @@ hook = os.environ.get("DISCORD_WEBHOOK")
 if not hook:
     raise SystemExit("缺 DISCORD_WEBHOOK secret")
 data = json.dumps({"username": "🌲 技能樹維護", "content": msg}).encode()
-req = urllib.request.Request(hook, data=data, headers={"Content-Type": "application/json"})
+req = urllib.request.Request(hook, data=data, headers={"Content-Type": "application/json", "User-Agent": "SkillTreeBot/1.0 (+github-actions)"})
 urllib.request.urlopen(req, timeout=20)
 print(f"Discord sent. page={code} count={count}")
