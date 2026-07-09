@@ -192,22 +192,22 @@
   <header>
     <div class="eyebrow">Claude Code · ~/.claude/skills</div>
     <h1>Andy 的技能樹</h1>
-    <p class="tagline">你本機自己策展的 30 個 skill，依用途分成 7 群。輸入 <code style="font-family:var(--font-mono)">/slug</code> 就能在 Claude Code 裡叫用。</p>
+    <p class="tagline">你本機自己策展的 31 個 skill，依用途分成 7 群。輸入 <code style="font-family:var(--font-mono)">/slug</code> 就能在 Claude Code 裡叫用。</p>
   </header>
 
   <div class="stats">
-    <div class="stat"><div class="num" id="s-total">30</div><div class="lbl">個人技能</div><div class="sub">~/.claude/skills</div></div>
+    <div class="stat"><div class="num" id="s-total">31</div><div class="lbl">個人技能</div><div class="sub">~/.claude/skills</div></div>
     <div class="stat"><div class="num">7</div><div class="lbl">分類</div><div class="sub">by use-case</div></div>
-    <div class="stat"><div class="num">18</div><div class="lbl">影音相關</div><div class="sub">60% · 影片工作流大本營</div></div>
+    <div class="stat"><div class="num">19</div><div class="lbl">影音相關</div><div class="sub">61% · 影片工作流大本營</div></div>
     <div class="stat"><div class="num">80+</div><div class="lbl">外掛另帶</div><div class="sub">Zeabur / Codex / 官方</div></div>
   </div>
 
   <div class="controls">
     <input class="search" id="search" type="text" placeholder="搜尋技能…（slug、名稱、用途）" aria-label="搜尋技能">
     <div class="chips" id="chips">
-      <button class="chip" data-cat="all" aria-pressed="true" style="--dot:var(--accent)"><span class="dot"></span>全部 <span class="cnt">30</span></button>
+      <button class="chip" data-cat="all" aria-pressed="true" style="--dot:var(--accent)"><span class="dot"></span>全部 <span class="cnt">31</span></button>
       <button class="chip" data-cat="engine" aria-pressed="false" style="--dot:var(--c-engine)"><span class="dot"></span>影音引擎 <span class="cnt">7</span></button>
-      <button class="chip" data-cat="workflow" aria-pressed="false" style="--dot:var(--c-workflow)"><span class="dot"></span>影音工作流 <span class="cnt">11</span></button>
+      <button class="chip" data-cat="workflow" aria-pressed="false" style="--dot:var(--c-workflow)"><span class="dot"></span>影音工作流 <span class="cnt">12</span></button>
       <button class="chip" data-cat="social" aria-pressed="false" style="--dot:var(--c-social)"><span class="dot"></span>社群內容 <span class="cnt">3</span></button>
       <button class="chip" data-cat="design" aria-pressed="false" style="--dot:var(--c-design)"><span class="dot"></span>設計 <span class="cnt">1</span></button>
       <button class="chip" data-cat="knowledge" aria-pressed="false" style="--dot:var(--c-knowledge)"><span class="dot"></span>知識・記錄 <span class="cnt">3</span></button>
@@ -254,6 +254,7 @@
     { cat:"workflow", slug:"embedded-captions", name:"特效字幕", desc:"對談影片加酷炫字幕，32 種視覺風格（Whisper→去背→ffmpeg）。" },
     { cat:"workflow", slug:"graphic-overlays", name:"疊圖卡包裝", desc:"對談／Podcast 影片疊時間軸圖卡：下標、數據卡、引言。" },
     { cat:"workflow", slug:"auto-editor", name:"口播毛片去停頓", desc:"真人講話毛片自動剪掉停頓／靜音成緊湊 jump-cut，可接 embedded-captions 上字。" },
+    { cat:"workflow", slug:"broll-pexels", name:"B-roll 空景素材", desc:"從 Pexels 免費庫搜尋/下載直式空景補進口播短影音；Claude 提關鍵字、你挑、自動下載。" },
     // social
     { cat:"social", slug:"cards", name:"社群圖卡", desc:"文字→品牌 IG 圖卡（藍黑／橘白，4:5／1:1），自動拆卡匯出。" },
     { cat:"social", slug:"threads-post", name:"Threads 潤稿", desc:"潤成 Andy 語氣的 Threads 貼文，給 2 個變體選。" },
